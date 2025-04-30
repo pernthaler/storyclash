@@ -1,5 +1,23 @@
-# Vue 3 + TypeScript + Vite
+# Storyclash Notes
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Manage and track your Creators in projects and analyze them.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Deploy
+
+```bash
+$ docker compose up --build
+```
+
+It's now accessible under: http://localhost
+
+## Development
+
+### Prerequisites
+
+- [Docker](https://www.docker.com/products/docker-desktop/)
+- [Node.js](https://nodejs.org/en)
+
+## Possible Enhancements
+
+- Authentication (e.g. [GitHub](https://docs.github.com/en/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps))
+- Markdown Support
