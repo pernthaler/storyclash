@@ -59,7 +59,7 @@ const expanded = ref(false);
   }
 
   &:hover .controls {
-    display: block;
+    display: initial;
   }
 }
 </style>

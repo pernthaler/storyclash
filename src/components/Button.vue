@@ -32,11 +32,11 @@ button {
   }
 
   &[data-size="small"] {
-    padding: 6px 12px;
+    padding: 3px 12px;
   }
 
   &[data-size="medium"] {
-    padding: 6px 16px;
+    padding: 3px 16px;
   }
 
   &[data-type="primary"] {
