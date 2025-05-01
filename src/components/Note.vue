@@ -2,22 +2,21 @@
 import Comment from "./Comment.vue";
 import Button from "./Button.vue";
 import IconAccount from "~icons/lets-icons/comment";
+import type { ApiNote } from "../types/api";
 
-defineProps<{
-  text: string;
-}>();
+const props = defineProps<ApiNote>();
 </script>
 
 <template>
   <div class="note p-6">
     <IconAccount class="text-icon m-auto" />
-    <Comment :text>
+    <Comment v-bind="props">
       <div class="controls hidden my-auto">
         <Button type="outline">Edit</Button>
         <Button type="outline">Delete</Button>
       </div>
     </Comment>
-    <Comment :text />
+    <Comment v-for="reply in props.replies" v-bind="reply" />
     <div class="col-start-2 col-span-2">
       <Button type="solid">Reply</Button>
     </div>

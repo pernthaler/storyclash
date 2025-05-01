@@ -1,18 +1,18 @@
 <script setup lang="ts">
-defineProps<{
-  text: string;
-}>();
+import type { ApiComment } from "../types/api";
+
+const props = defineProps<ApiComment>();
 </script>
 
 <template>
   <img
     class="size-8 border-border bg-border border rounded-full m-auto col-start-2"
-    src="https://thispersondoesnotexist.com"
+    :src="props.author.avatar"
     loading="lazy"
   />
   <div class="flex">
     <div>
-      <p>John Doe</p>
+      <p>{{ props.author.username }}</p>
       <p class="text-placeholder">31.10.2021, 17:14</p>
     </div>
     <slot />
