@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource-variable/roboto": "^5.2.5",
+    "@formkit/auto-animate": "^0.8.2",
     "@iconify-json/lets-icons": "^1.2.1",
     "@tailwindcss/vite": "^4.1.4",
     "@vueuse/core": "^13.1.0",

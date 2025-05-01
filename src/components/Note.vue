@@ -16,7 +16,7 @@ const props = defineProps<ApiNote>();
         <Button type="outline">Delete</Button>
       </div>
     </Comment>
-    <Comment v-for="reply in props.replies" v-bind="reply" />
+    <Comment v-for="reply in props.replies" :key="reply.id" v-bind="reply" />
     <div class="col-start-2 col-span-2">
       <Button type="solid">Reply</Button>
     </div>

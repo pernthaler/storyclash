@@ -1,19 +1,18 @@
 <?php
-
 namespace App\Controller;
 
+use App\Entity\Note;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
-class NoteController
+class NoteController extends AbstractController
 {
-    #[Route('/api/note')]
-    public function number(): Response
+    #[Route('/api/notes')]
+    public function number(EntityManagerInterface $entityManager): Response
     {
-        $number = random_int(0, 100);
-
-        return new Response(
-            '<html><body>Lucky number: ' . $number . '</body></html>'
-        );
+        $notes = $entityManager->getRepository(Note::class)->findAll();
+        return $this->json($notes);
     }
 }

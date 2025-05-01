@@ -5,10 +5,10 @@ export type ApiNote = ApiComment & {
 export type ApiComment = {
   id: number;
   text: string;
-  author: ApiAuthor;
+  author: ApiUser;
 };
 
-type ApiAuthor = {
+export type ApiUser = {
   id: number;
   username: string;
   avatar: string;

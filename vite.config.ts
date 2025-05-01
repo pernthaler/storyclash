@@ -5,4 +5,9 @@ import Icons from "unplugin-icons/vite";
 
 export default defineConfig({
   plugins: [vue(), tailwindcss(), Icons({ compiler: "vue3" })],
+  server: {
+    proxy: {
+      "/api": "http://localhost:8000",
+    },
+  },
 });
