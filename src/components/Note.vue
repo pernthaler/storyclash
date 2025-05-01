@@ -21,7 +21,7 @@ const expanded = ref(false);
     </Comment>
     <div v-if="replies.length >= 2 && !expanded" class="col-start-2 col-span-2">
       <Button size="medium" type="outline" @click="expanded = true">
-        Show {{ replies.length }} more replies
+        Show {{ replies.length - 1 }} more replies
       </Button>
     </div>
     <div v-auto-animate class="contents">
