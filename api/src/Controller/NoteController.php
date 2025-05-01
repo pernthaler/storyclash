@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class NoteController extends AbstractController
 {
-    #[Route('/api/notes')]
+    #[Route('/notes')]
     public function number(EntityManagerInterface $entityManager): Response
     {
         $notes = $entityManager->getRepository(Note::class)->findAll();

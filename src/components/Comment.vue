@@ -22,5 +22,5 @@ const props = defineProps<ApiComment>();
 
   <div class="w-px bg-border mx-auto col-start-2" />
 
-  <div class="py-2 text-sm">{{ text }}</div>
+  <div class="py-2 text-sm break-all">{{ text }}</div>
 </template>
