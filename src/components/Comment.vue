@@ -12,16 +12,11 @@ const props = defineProps<ApiComment>();
   />
   <div class="flex">
     <div>
-      <p>{{ props.author.username }}</p>
-      <p class="text-placeholder">31.10.2021, 17:14</p>
+      <p class="text-sm font-medium">{{ props.author.username }}</p>
+      <p class="text-placeholder text-xs">31.10.2021, 17:14</p>
     </div>
     <slot />
   </div>
   <div class="w-px bg-border mx-auto col-start-2" />
-  <div class="py-2">{{ text }}</div>
+  <div class="py-2 text-sm">{{ text }}</div>
 </template>
-
-<style lang="css">
-.comment {
-}
-</style>
