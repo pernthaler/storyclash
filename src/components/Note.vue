@@ -13,17 +13,24 @@ const expanded = ref(false);
 <template>
   <div class="note p-6">
     <IconAccount class="text-icon m-auto" />
+
     <Comment v-bind="props">
       <div class="controls hidden my-auto">
         <Button type="outline">Edit</Button>
         <Button type="outline">Delete</Button>
       </div>
     </Comment>
-    <div v-if="replies.length >= 2 && !expanded" class="col-start-2 col-span-2">
-      <Button size="medium" type="outline" @click="expanded = true">
-        Show {{ replies.length - 1 }} more replies
-      </Button>
+
+    <div v-if="replies.length >= 2 && !expanded" class="contents">
+      <div class="col-start-2 col-span-2">
+        <Button size="medium" type="outline" @click="expanded = true">
+          Show {{ replies.length - 1 }} more replies
+        </Button>
+      </div>
+
+      <div class="w-px h-4 bg-border mx-auto col-start-2" />
     </div>
+
     <div v-auto-animate class="contents">
       <template v-for="(reply, index) in props.replies">
         <Comment
@@ -33,6 +40,7 @@ const expanded = ref(false);
         />
       </template>
     </div>
+
     <div class="col-start-2 col-span-2">
       <Button size="medium" type="solid">Reply</Button>
     </div>
