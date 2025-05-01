@@ -27,10 +27,7 @@ function onCreate() {
       </Button>
     </div>
   </header>
-  <div
-    v-auto-animate
-    class="bg-white rounded-lg border-border border shadow-xs"
-  >
+  <div class="bg-white rounded-lg border-border border shadow-xs">
     <Note v-if="isFinished" v-for="note in data" :key="note.id" v-bind="note" />
     <p v-else class="p-6">Loading...</p>
   </div>

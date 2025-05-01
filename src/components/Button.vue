@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { size = "small" } = defineProps<{
-  size?: "small" | "large";
+  size?: "small" | "medium" | "large";
   type?: "primary" | "danger" | "solid" | "outline";
 }>();
 
@@ -26,9 +26,17 @@ button {
     padding: 10px 20px;
   }
 
-  &[data-size="small"] {
-    padding: 6px 16px;
+  &[data-size="small"],
+  &[data-size="medium"] {
     font-size: 12px;
+  }
+
+  &[data-size="small"] {
+    padding: 6px 12px;
+  }
+
+  &[data-size="medium"] {
+    padding: 6px 16px;
   }
 
   &[data-type="primary"] {

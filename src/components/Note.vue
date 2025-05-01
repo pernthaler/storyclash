@@ -3,8 +3,11 @@ import Comment from "./Comment.vue";
 import Button from "./Button.vue";
 import IconAccount from "~icons/lets-icons/comment";
 import type { ApiNote } from "../types/api";
+import { ref } from "vue";
 
 const props = defineProps<ApiNote>();
+
+const expanded = ref(false);
 </script>
 
 <template>
@@ -16,9 +19,22 @@ const props = defineProps<ApiNote>();
         <Button type="outline">Delete</Button>
       </div>
     </Comment>
-    <Comment v-for="reply in props.replies" :key="reply.id" v-bind="reply" />
+    <div v-if="replies.length >= 2 && !expanded" class="col-start-2 col-span-2">
+      <Button size="medium" type="outline" @click="expanded = true">
+        Show {{ replies.length }} more replies
+      </Button>
+    </div>
+    <div v-auto-animate class="contents">
+      <template v-for="(reply, index) in props.replies">
+        <Comment
+          v-if="expanded || index === replies.length - 1"
+          :key="reply.id"
+          v-bind="reply"
+        />
+      </template>
+    </div>
     <div class="col-start-2 col-span-2">
-      <Button type="solid">Reply</Button>
+      <Button size="medium" type="solid">Reply</Button>
     </div>
   </div>
 </template>
