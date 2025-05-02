@@ -20,6 +20,6 @@ It's now accessible under: http://localhost:8080
 ## Possible Enhancements
 
 - Authentication (e.g. [GitHub](https://docs.github.com/en/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps))
-- Loading Skeleton
+- Emoji Reactions (e.g. GitHub / [GitLab](https://docs.gitlab.com/user/emoji_reactions/))
 - Markdown Support
-- Emoji Reactions (e.g. GitHub / GitLab)
+- Loading Skeleton
