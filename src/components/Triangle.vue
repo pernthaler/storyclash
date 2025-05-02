@@ -6,7 +6,7 @@ import Triangle from "../assets/triangle.svg?url";
     <img class="absolute inset-0 -z-10" :src="Triangle" alt="Triangle" />
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 img {
     width: 50%;
 }
