@@ -3,7 +3,7 @@
 }
 
 :80 {
-	root /var/www/html/app
+	root /var/www/html
 	encode
 	file_server
 

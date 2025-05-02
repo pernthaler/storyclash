@@ -12,7 +12,7 @@ RUN composer install
 FROM dunglas/frankenphp:alpine
 ENV APP_ENV=prod
 RUN install-php-extensions pdo_pgsql
-COPY --from=node /app/dist /var/www/html/app
+COPY --from=node /app/dist /var/www/html
 COPY --from=composer /app .
 COPY Caddyfile /etc/caddy
 COPY entrypoint.sh .
