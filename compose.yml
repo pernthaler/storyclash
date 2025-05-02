@@ -1,5 +1,12 @@
+include:
+  - api/compose.yaml
+
 services:
   storyclash:
     build: .
     ports:
       - 80:80
+    depends_on:
+      - database
+    environment:
+      DATABASE_URL: "postgresql://app:!ChangeMe!@database:5432/app?serverVersion=16&charset=utf8"

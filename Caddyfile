@@ -1,0 +1,14 @@
+{
+	frankenphp
+}
+
+:80 {
+	root /var/www/html/app
+	encode
+	file_server
+
+	handle_path /api/* {
+		root /app/public
+		php_server
+	}
+}
