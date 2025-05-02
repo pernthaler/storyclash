@@ -2,13 +2,19 @@
 
 Manage and track your Creators in projects and analyze them.
 
-## Deploy
+## Hosted
+
+A hosted instance is available under: https://storyclash.pernthaler.dev
+
+## Local
+
+You can start a production environment locally with a single docker command:
 
 ```bash
 $ docker compose up --build
 ```
 
-It's now accessible under: http://localhost:8080
+Now it is accessible under: http://localhost:8080
 
 ## Development
 
