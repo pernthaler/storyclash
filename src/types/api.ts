@@ -1,15 +1,15 @@
 export type ApiNote = ApiComment & {
-  replies: ApiComment[];
+    replies: ApiComment[];
 };
 
 export type ApiComment = {
-  id: number;
-  text: string;
-  author: ApiUser;
+    id: number;
+    text: string;
+    author: ApiUser;
 };
 
 export type ApiUser = {
-  id: number;
-  username: string;
-  avatar: string;
+    id: number;
+    username: string;
+    avatar: string;
 };

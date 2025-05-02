@@ -1,31 +1,34 @@
 {
-  "name": "storyclash",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vue-tsc && vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@fontsource-variable/roboto": "^5.2.5",
-    "@formkit/auto-animate": "^0.8.2",
-    "@iconify-json/lets-icons": "^1.2.1",
-    "@tailwindcss/vite": "^4.1.4",
-    "@vueuse/core": "^13.1.0",
-    "reka-ui": "^2.2.0",
-    "sass-embedded": "^1.87.0",
-    "tailwindcss": "^4.1.4",
-    "unplugin-icons": "^22.1.0",
-    "vue": "^3.5.13"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-vue": "^5.2.3",
-    "@vue/tsconfig": "^0.7.0",
-    "typescript": "~5.8.3",
-    "vite": "^6.3.4",
-    "vue-tsc": "^2.2.10"
-  },
-  "packageManager": "pnpm@10.10.0"
+    "name": "storyclash",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vue-tsc && vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "@fontsource-variable/roboto": "^5.2.5",
+        "@formkit/auto-animate": "^0.8.2",
+        "@iconify-json/lets-icons": "^1.2.1",
+        "@tailwindcss/vite": "^4.1.4",
+        "@trivago/prettier-plugin-sort-imports": "^5.2.2",
+        "@vueuse/core": "^13.1.0",
+        "prettier": "^3.5.3",
+        "prettier-plugin-tailwindcss": "^0.6.11",
+        "reka-ui": "^2.2.0",
+        "sass-embedded": "^1.87.0",
+        "tailwindcss": "^4.1.4",
+        "unplugin-icons": "^22.1.0",
+        "vue": "^3.5.13"
+    },
+    "devDependencies": {
+        "@vitejs/plugin-vue": "^5.2.3",
+        "@vue/tsconfig": "^0.7.0",
+        "typescript": "~5.8.3",
+        "vite": "^6.3.4",
+        "vue-tsc": "^2.2.10"
+    },
+    "packageManager": "pnpm@10.10.0"
 }

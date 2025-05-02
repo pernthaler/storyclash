@@ -1,6 +1,6 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.json",
-  "compilerOptions": {
-    "types": ["unplugin-icons/types/vue"]
-  }
+    "extends": "@vue/tsconfig/tsconfig.json",
+    "compilerOptions": {
+        "types": ["unplugin-icons/types/vue"]
+    }
 }
