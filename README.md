@@ -8,7 +8,7 @@ Manage and track your Creators in projects and analyze them.
 $ docker compose up --build
 ```
 
-It's now accessible under: http://localhost
+It's now accessible under: http://localhost:8080
 
 ## Development
 
@@ -22,3 +22,4 @@ It's now accessible under: http://localhost
 - Authentication (e.g. [GitHub](https://docs.github.com/en/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps))
 - Loading Skeleton
 - Markdown Support
+- Emoji Reactions (e.g. GitHub / GitLab)
