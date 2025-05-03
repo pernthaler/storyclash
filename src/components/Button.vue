@@ -2,6 +2,7 @@
 const { size = "small" } = defineProps<{
     size?: "small" | "medium" | "large";
     type?: "primary" | "danger" | "solid" | "outline";
+    submit?: boolean;
 }>();
 
 const emit = defineEmits(["click"]);
@@ -10,6 +11,7 @@ const emit = defineEmits(["click"]);
 <template>
     <button
         class="cursor-pointer"
+        :type="submit ? 'submit' : 'button'"
         @click="emit('click')"
         :data-size="size"
         :data-type="type"

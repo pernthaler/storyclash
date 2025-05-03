@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Background from "./components/Background.vue";
 import Button from "./components/Button.vue";
+import Modal from "./components/Modal.vue";
 import Note from "./components/Note.vue";
 import type { ApiNote } from "./types/api";
 import { useFetch } from "@vueuse/core";
@@ -22,9 +23,13 @@ function onCreate() {
         </div>
 
         <div class="flex items-center">
-            <Button size="large" type="primary" @click="onCreate">
-                Create a New Note
-            </Button>
+            <Modal title="Create a new Note">
+                <template #trigger>
+                    <Button size="large" type="primary">
+                        Create a new Note
+                    </Button>
+                </template>
+            </Modal>
         </div>
     </header>
 
