@@ -22,7 +22,7 @@ class Reply
 
     #[Ignore]
     #[ORM\ManyToOne(inversedBy: 'replies')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: false, onDelete: 'CASCADE')]
     private ?Note $note = null;
 
     public function getId(): ?int
