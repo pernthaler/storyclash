@@ -14,6 +14,8 @@ import IconCloseRound from "~icons/lets-icons/close-round";
 
 defineProps<{
     title: string;
+    action: string;
+    danger?: boolean;
 }>();
 
 const emit = defineEmits(["submit"]);
@@ -56,7 +58,13 @@ function onSubmit() {
                     >
                         Cancel
                     </Button>
-                    <Button size="large" type="primary" submit>Submit</Button>
+                    <Button
+                        size="large"
+                        :type="!danger ? 'primary' : 'danger'"
+                        submit
+                    >
+                        {{ action }}
+                    </Button>
                 </form>
             </DialogContent>
         </DialogPortal>

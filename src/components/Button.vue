@@ -41,8 +41,12 @@ button {
         padding: 0.5rem 1.25rem;
     }
 
-    &[data-type="primary"] {
+    &[data-type="primary"],
+    &[data-type="danger"] {
         color: white;
+    }
+
+    &[data-type="primary"] {
         background-color: var(--color-primary);
     }
 

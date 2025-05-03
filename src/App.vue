@@ -3,6 +3,7 @@ import Background from "./components/Background.vue";
 import Button from "./components/Button.vue";
 import Modal from "./components/Modal.vue";
 import Note from "./components/Note.vue";
+import TextArea from "./components/TextArea.vue";
 import noteRepository from "./repositories/noteRepository";
 import type { ApiNote } from "./types/api";
 import { syncRefs, useFetch } from "@vueuse/core";
@@ -47,14 +48,18 @@ async function onDelete(note: ApiNote) {
         </div>
 
         <div class="flex items-center">
-            <Modal title="Create a new Note" @submit="onCreate">
+            <Modal
+                title="Create a new Note"
+                action="Create Note"
+                @submit="onCreate"
+            >
                 <template #trigger>
                     <Button size="large" type="primary">
                         Create a new Note
                     </Button>
                 </template>
 
-                <textarea v-autofocus v-model="text" maxlength="255" required />
+                <TextArea v-model="text" placeholder="Please enter your Note" />
             </Modal>
         </div>
     </header>
@@ -71,7 +76,7 @@ async function onDelete(note: ApiNote) {
                 v-bind="note"
                 @delete="onDelete(note)"
             />
-            <p v-else class="p-6">No Notes were found.</p>
+            <p v-else class="p-6">No Notes were found</p>
         </template>
         <p v-else class="p-6">Loading...</p>
     </div>

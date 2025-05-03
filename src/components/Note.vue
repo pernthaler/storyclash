@@ -2,6 +2,7 @@
 import type { ApiNote } from "../types/api";
 import Button from "./Button.vue";
 import Comment from "./Comment.vue";
+import Modal from "./Modal.vue";
 import { ref } from "vue";
 import IconComment from "~icons/lets-icons/comment";
 
@@ -19,7 +20,23 @@ const expanded = ref(false);
         <Comment :id :text :created-at="updatedAt" :author>
             <div class="controls my-auto hidden">
                 <Button type="outline" @click="emit('edit')">Edit</Button>
-                <Button type="outline" @click="emit('delete')">Delete</Button>
+                <Modal
+                    title="Are you sure you want to delete?"
+                    action="Delete Note"
+                    @submit="emit('delete')"
+                    danger
+                >
+                    <template #trigger>
+                        <Button type="outline">Delete</Button>
+                    </template>
+
+                    <p class="text-sm">
+                        By deleting this note all replies will be deleted too.
+                        <br />
+                        This cannot be undone!
+                    </p>
+                    <p></p>
+                </Modal>
             </div>
         </Comment>
 

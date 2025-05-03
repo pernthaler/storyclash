@@ -3,14 +3,15 @@
 @theme {
     --font-sans: "Roboto Variable", ui-sans-serif, system-ui, sans-serif;
 
-    --color-primary: #19b776;
-    --color-text: #233c42;
-    --color-subtext: #818e92;
     --color-border: #e5e5e5;
     --color-danger: #eb0000;
-    --color-surface: #f2f4f4;
-    --color-placeholder: #999999;
     --color-icon: #bbbbbb;
+    --color-placeholder: #999999;
+    --color-primary: #19b776;
+    --color-subtext: #818e92;
+    --color-surface: #f2f4f4;
+    --color-surface-dark: #f7f8f8;
+    --color-text: #233c42;
 }
 
 body {
