@@ -61,7 +61,7 @@ async function onDelete(note: ApiNote) {
                 v-bind="note"
                 @delete="onDelete(note)"
             />
-            <p v-else class="p-6">No notes were found.</p>
+            <p v-else class="p-6">No Notes were found.</p>
         </template>
         <p v-else class="p-6">Loading...</p>
     </div>

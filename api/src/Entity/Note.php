@@ -24,7 +24,7 @@ class Note
     /**
      * @var Collection<int, Reply>
      */
-    #[ORM\OneToMany(targetEntity: Reply::class, mappedBy: 'note')]
+    #[ORM\OneToMany(targetEntity: Reply::class, mappedBy: 'note', cascade: ['remove'])]
     private Collection $replies;
 
     public function __construct()
@@ -71,7 +71,7 @@ class Note
 
     public function addReply(Reply $reply): static
     {
-        if (!$this->replies->contains($reply)) {
+        if (! $this->replies->contains($reply)) {
             $this->replies->add($reply);
             $reply->setNote($this);
         }
