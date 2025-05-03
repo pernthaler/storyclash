@@ -22,10 +22,6 @@ const emit = defineEmits(["click"]);
 button {
     border-radius: 3.125rem;
 
-    &[data-size="large"] {
-        padding: 0.625rem 1.25rem;
-    }
-
     &[data-size="small"],
     &[data-size="medium"] {
         font-size: 0.75rem;
@@ -37,6 +33,10 @@ button {
 
     &[data-size="medium"] {
         padding: 3px 1rem;
+    }
+
+    &[data-size="large"] {
+        padding: 0.5rem 1.25rem;
     }
 
     &[data-type="primary"] {
