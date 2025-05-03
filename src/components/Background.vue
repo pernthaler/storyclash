@@ -4,7 +4,7 @@ import Triangle2 from "../assets/triangle2.svg?url";
 </script>
 
 <template>
-    <img class="absolute top-0 left-0" :src="Triangle1" alt="Triangle 1" />
+    <img class="fixed top-0 left-0" :src="Triangle1" alt="Triangle 1" />
     <img class="fixed right-0 bottom-0" :src="Triangle2" alt="Triangle 2" />
 </template>
 

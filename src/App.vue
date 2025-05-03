@@ -3,9 +3,9 @@ import Background from "./components/Background.vue";
 import Button from "./components/Button.vue";
 import Modal from "./components/Modal.vue";
 import Note from "./components/Note.vue";
+import noteRepository from "./repositories/noteRepository";
 import type { ApiNote } from "./types/api";
 import { syncRef, useFetch } from "@vueuse/core";
-import { ofetch } from "ofetch";
 import { ref } from "vue";
 
 const { data, isFinished } = useFetch("/api/notes").json<ApiNote[]>();
@@ -15,14 +15,18 @@ syncRef(data, notes);
 const text = ref<string>();
 
 async function onCreate() {
-    const note = await ofetch<ApiNote>("/api/notes", {
-        method: "POST",
-        body: {
-            text: text.value,
-        },
-    });
+    if (!text.value) return;
+    const note = await noteRepository.createNote(text.value);
     notes.value?.push(note);
     text.value = undefined;
+}
+
+async function onDelete(note: ApiNote) {
+    await noteRepository.deleteNote(note);
+    const index = notes.value?.indexOf(note);
+    if (index !== undefined) {
+        notes.value?.splice(index, 1);
+    }
 }
 </script>
 
@@ -43,7 +47,7 @@ async function onCreate() {
                     </Button>
                 </template>
 
-                <textarea v-model="text" required />
+                <textarea v-autofocus v-model="text" maxlength="255" required />
             </Modal>
         </div>
     </header>
@@ -55,6 +59,7 @@ async function onCreate() {
                 v-for="note in notes"
                 :key="note.id"
                 v-bind="note"
+                @delete="onDelete(note)"
             />
             <p v-else class="p-6">No notes were found.</p>
         </template>

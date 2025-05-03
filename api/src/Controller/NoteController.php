@@ -6,7 +6,7 @@ use App\Entity\Note;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Attribute\MapRequestPayload;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\ServiceUnavailableHttpException;
@@ -16,14 +16,14 @@ use Symfony\Component\Routing\Attribute\Route;
 class NoteController extends AbstractController
 {
     #[Route(methods: ['GET'])]
-    public function get(EntityManagerInterface $entityManager): Response
+    public function get(EntityManagerInterface $entityManager): JsonResponse
     {
         $notes = $entityManager->getRepository(Note::class)->findAll();
         return $this->json($notes);
     }
 
     #[Route(methods: ['POST'])]
-    public function post(EntityManagerInterface $entityManager, #[MapRequestPayload] NoteDto $dto): Response
+    public function post(EntityManagerInterface $entityManager, #[MapRequestPayload] NoteDto $dto): JsonResponse
     {
         $users = $entityManager->getRepository(User::class)->findAll();
         if (! $users) {
@@ -41,8 +41,8 @@ class NoteController extends AbstractController
         return $this->json($note);
     }
 
-    #[Route('/{id}', methods: ['PUT'])]
-    public function put(EntityManagerInterface $entityManager, string $id, #[MapRequestPayload] NoteDto $dto): Response
+    #[Route('/{id}', methods: ['PATCH'])]
+    public function put(EntityManagerInterface $entityManager, int $id, #[MapRequestPayload] NoteDto $dto): JsonResponse
     {
         $note = $entityManager->getRepository(Note::class)->find($id);
         if (! $note) {
@@ -54,4 +54,19 @@ class NoteController extends AbstractController
 
         return $this->json($note);
     }
+
+    #[Route('/{id}', methods: ['DELETE'])]
+    public function delete(EntityManagerInterface $entityManager, int $id): JsonResponse
+    {
+        $note = $entityManager->getRepository(Note::class)->find($id);
+        if (! $note) {
+            throw new NotFoundHttpException();
+        }
+
+        $entityManager->remove($note);
+        $entityManager->flush();
+
+        return $this->json($note);
+    }
+
 }

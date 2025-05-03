@@ -7,6 +7,8 @@ import IconComment from "~icons/lets-icons/comment";
 
 defineProps<ApiNote>();
 
+const emit = defineEmits(["edit", "delete"]);
+
 const expanded = ref(false);
 </script>
 
@@ -16,8 +18,8 @@ const expanded = ref(false);
 
         <Comment :id :text :author>
             <div class="controls my-auto hidden">
-                <Button type="outline">Edit</Button>
-                <Button type="outline">Delete</Button>
+                <Button type="outline" @click="emit('edit')">Edit</Button>
+                <Button type="outline" @click="emit('delete')">Delete</Button>
             </div>
         </Comment>
 
