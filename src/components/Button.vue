@@ -20,23 +20,23 @@ const emit = defineEmits(["click"]);
 
 <style lang="scss" scoped>
 button {
-    border-radius: 50px;
+    border-radius: 3.125rem;
 
     &[data-size="large"] {
-        padding: 10px 20px;
+        padding: 0.625rem 1.25rem;
     }
 
     &[data-size="small"],
     &[data-size="medium"] {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 
     &[data-size="small"] {
-        padding: 3px 12px;
+        padding: 3px 0.75rem;
     }
 
     &[data-size="medium"] {
-        padding: 3px 16px;
+        padding: 3px 1rem;
     }
 
     &[data-type="primary"] {
@@ -53,7 +53,7 @@ button {
     }
 
     &[data-type="outline"] {
-        border: 1px solid var(--color-border);
+        box-shadow: inset 0 0 0 1px var(--color-border);
     }
 }
 </style>
