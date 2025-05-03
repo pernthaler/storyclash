@@ -26,7 +26,6 @@ async function onCreate() {
     if (!text.value) return;
     const note = await noteRepository.createNote(text.value);
     notes.value?.push(note);
-    text.value = undefined;
 }
 
 async function onDelete(note: ApiNote) {
@@ -54,7 +53,11 @@ async function onDelete(note: ApiNote) {
                 @submit="onCreate"
             >
                 <template #trigger>
-                    <Button size="large" type="primary">
+                    <Button
+                        size="large"
+                        type="primary"
+                        @click="text = undefined"
+                    >
                         Create a new Note
                     </Button>
                 </template>

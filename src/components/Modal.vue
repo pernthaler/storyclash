@@ -30,7 +30,7 @@ function onSubmit() {
 
 <template>
     <DialogRoot v-model:open="open">
-        <DialogTrigger>
+        <DialogTrigger as-child>
             <slot name="trigger" />
         </DialogTrigger>
         <DialogPortal>
