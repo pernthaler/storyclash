@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import type { ApiComment } from "../types/api";
+import { useDateFormat } from "@vueuse/core";
 
-defineProps<ApiComment>();
+const props = defineProps<ApiComment>();
+
+const date = useDateFormat(props.createdAt, "DD.MM.YYYY, HH:mm");
 </script>
 
 <template>
@@ -14,7 +17,7 @@ defineProps<ApiComment>();
     <div class="flex">
         <div>
             <p class="text-sm font-medium">{{ author.username }}</p>
-            <p class="text-placeholder text-xs">31.10.2021, 17:14</p>
+            <p class="text-placeholder text-xs">{{ date }}</p>
         </div>
 
         <slot />

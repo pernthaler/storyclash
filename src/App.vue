@@ -5,12 +5,19 @@ import Modal from "./components/Modal.vue";
 import Note from "./components/Note.vue";
 import noteRepository from "./repositories/noteRepository";
 import type { ApiNote } from "./types/api";
-import { syncRef, useFetch } from "@vueuse/core";
-import { ref } from "vue";
+import { syncRefs, useFetch } from "@vueuse/core";
+import { computed, ref } from "vue";
 
 const { data, isFinished } = useFetch("/api/notes").json<ApiNote[]>();
 const notes = ref(data.value);
-syncRef(data, notes);
+syncRefs(data, notes);
+
+const sortedNotes = computed(() =>
+    notes.value?.toSorted(
+        (a, b) =>
+            new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime(),
+    ),
+);
 
 const text = ref<string>();
 
@@ -52,11 +59,14 @@ async function onDelete(note: ApiNote) {
         </div>
     </header>
 
-    <div class="border-border rounded-lg border bg-white shadow-xs">
+    <div
+        v-auto-animate
+        class="border-border rounded-lg border bg-white shadow-xs"
+    >
         <template v-if="isFinished">
             <Note
                 v-if="notes?.length"
-                v-for="note in notes"
+                v-for="note in sortedNotes"
                 :key="note.id"
                 v-bind="note"
                 @delete="onDelete(note)"
