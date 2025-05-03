@@ -3,7 +3,7 @@ namespace App\Dto;
 
 use Symfony\Component\Validator\Constraints as Assert;
 
-class NoteDto
+class CommentDto
 {
     public function __construct(
         #[Assert\NotBlank]

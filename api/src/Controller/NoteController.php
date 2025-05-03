@@ -1,8 +1,9 @@
 <?php
 namespace App\Controller;
 
-use App\Dto\NoteDto;
+use App\Dto\CommentDto;
 use App\Entity\Note;
+use App\Entity\Reply;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,7 +24,7 @@ class NoteController extends AbstractController
     }
 
     #[Route(methods: ['POST'])]
-    public function post(EntityManagerInterface $entityManager, #[MapRequestPayload] NoteDto $dto): JsonResponse
+    public function post(EntityManagerInterface $entityManager, #[MapRequestPayload] CommentDto $dto): JsonResponse
     {
         $users = $entityManager->getRepository(User::class)->findAll();
         if (! $users) {
@@ -42,7 +43,7 @@ class NoteController extends AbstractController
     }
 
     #[Route('/{id}', methods: ['PATCH'])]
-    public function put(EntityManagerInterface $entityManager, int $id, #[MapRequestPayload] NoteDto $dto): JsonResponse
+    public function put(EntityManagerInterface $entityManager, int $id, #[MapRequestPayload] CommentDto $dto): JsonResponse
     {
         $note = $entityManager->getRepository(Note::class)->find($id);
         if (! $note) {
@@ -64,6 +65,22 @@ class NoteController extends AbstractController
         }
 
         $entityManager->remove($note);
+        $entityManager->flush();
+
+        return $this->json($note);
+    }
+
+    #[Route('/{id}/reply', methods: ['POST'])]
+    public function reply(EntityManagerInterface $entityManager, int $id, #[MapRequestPayload] CommentDto $dto): JsonResponse
+    {
+        $note = $entityManager->getRepository(Note::class)->find($id);
+        if (! $note) {
+            throw new NotFoundHttpException();
+        }
+
+        $reply = new Reply();
+        $reply->setText($dto->text);
+        $note->addReply($reply);
         $entityManager->flush();
 
         return $this->json($note);
