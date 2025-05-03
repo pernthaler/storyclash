@@ -5,7 +5,7 @@ import Comment from "./Comment.vue";
 import { ref } from "vue";
 import IconAccount from "~icons/lets-icons/comment";
 
-const props = defineProps<ApiNote>();
+defineProps<ApiNote>();
 
 const expanded = ref(false);
 </script>
@@ -14,7 +14,7 @@ const expanded = ref(false);
     <div class="note p-6">
         <IconAccount class="text-icon m-auto" />
 
-        <Comment v-bind="props">
+        <Comment :id :text :author>
             <div class="controls my-auto hidden">
                 <Button type="outline">Edit</Button>
                 <Button type="outline">Delete</Button>
@@ -32,7 +32,7 @@ const expanded = ref(false);
         </div>
 
         <div v-auto-animate class="contents">
-            <template v-for="(reply, index) in props.replies">
+            <template v-for="(reply, index) in replies">
                 <Comment
                     v-if="expanded || index === replies.length - 1"
                     :key="reply.id"
