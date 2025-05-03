@@ -48,6 +48,7 @@ function onSubmit() {
                             <IconCloseRound />
                         </DialogClose>
                     </header>
+                    <slot />
                     <Button
                         size="large"
                         class="text-primary"

@@ -4,12 +4,25 @@ import Button from "./components/Button.vue";
 import Modal from "./components/Modal.vue";
 import Note from "./components/Note.vue";
 import type { ApiNote } from "./types/api";
-import { useFetch } from "@vueuse/core";
+import { syncRef, useFetch } from "@vueuse/core";
+import { ofetch } from "ofetch";
+import { ref } from "vue";
 
 const { data, isFinished } = useFetch("/api/notes").json<ApiNote[]>();
+const notes = ref(data.value);
+syncRef(data, notes);
 
-function onCreate() {
-    console.log("asd");
+const text = ref<string>();
+
+async function onCreate() {
+    const note = await ofetch<ApiNote>("/api/notes", {
+        method: "POST",
+        body: {
+            text: text.value,
+        },
+    });
+    notes.value?.push(note);
+    text.value = undefined;
 }
 </script>
 
@@ -23,12 +36,14 @@ function onCreate() {
         </div>
 
         <div class="flex items-center">
-            <Modal title="Create a new Note">
+            <Modal title="Create a new Note" @submit="onCreate">
                 <template #trigger>
                     <Button size="large" type="primary">
                         Create a new Note
                     </Button>
                 </template>
+
+                <textarea v-model="text" required />
             </Modal>
         </div>
     </header>
@@ -36,8 +51,8 @@ function onCreate() {
     <div class="border-border rounded-lg border bg-white shadow-xs">
         <template v-if="isFinished">
             <Note
-                v-if="data?.length"
-                v-for="note in data"
+                v-if="notes?.length"
+                v-for="note in notes"
                 :key="note.id"
                 v-bind="note"
             />
