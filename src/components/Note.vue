@@ -3,7 +3,7 @@ import type { ApiNote } from "../types/api";
 import Button from "./Button.vue";
 import Comment from "./Comment.vue";
 import { ref } from "vue";
-import IconAccount from "~icons/lets-icons/comment";
+import IconComment from "~icons/lets-icons/comment";
 
 defineProps<ApiNote>();
 
@@ -12,7 +12,7 @@ const expanded = ref(false);
 
 <template>
     <div class="note p-6">
-        <IconAccount class="text-icon m-auto" />
+        <IconComment class="text-icon m-auto" />
 
         <Comment :id :text :author>
             <div class="controls my-auto hidden">
