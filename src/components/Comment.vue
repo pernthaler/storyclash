@@ -28,5 +28,5 @@ const date = useDateFormat(createdAt, "DD.MM.YYYY, HH:mm");
 
     <div class="bg-border col-start-2 mx-auto w-px" />
 
-    <div class="py-2 text-sm break-all whitespace-pre">{{ text }}</div>
+    <div class="py-2 text-sm break-all whitespace-pre-wrap">{{ text }}</div>
 </template>
