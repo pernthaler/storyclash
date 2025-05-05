@@ -66,16 +66,15 @@ async function onDelete(note: NoteApi) {
     </header>
 
     <div class="border-border rounded-lg border bg-white shadow-xs">
-        <template v-if="isFinished">
-            <div v-auto-animate v-if="notes?.length">
-                <Note
-                    v-for="note in sortedNotes"
-                    :key="note.id"
-                    v-bind="note"
-                    @delete="onDelete(note)" />
-            </div>
+        <div v-auto-animate v-if="isFinished">
+            <Note
+                v-if="notes?.length"
+                v-for="note in sortedNotes"
+                :key="note.id"
+                v-bind="note"
+                @delete="onDelete(note)" />
             <p v-else class="p-6">No Notes were found</p>
-        </template>
+        </div>
         <p v-else class="p-6">Loading...</p>
     </div>
 
