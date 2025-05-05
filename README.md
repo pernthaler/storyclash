@@ -18,7 +18,7 @@ Now it is accessible under: http://localhost:8080
 
 ## Possible Enhancements
 
-Before deploying to a real production system, proper authentication is needed, everything else is just a nice to have.
+Before deploying to a real production system, proper authentication is needed, everything else is just a nice to have:
 
 - Authentication (e.g. [GitHub](https://docs.github.com/en/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps))
 - Permissions
