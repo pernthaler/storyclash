@@ -18,7 +18,7 @@ const expanded = ref(false);
         <IconComment class="text-icon m-auto" />
 
         <Comment :id :text :created-at="updatedAt" :author>
-            <div class="controls my-auto hidden">
+            <div class="controls my-auto hidden gap-1.5">
                 <Button type="outline" @click="emit('edit')">Edit</Button>
                 <Modal
                     title="Are you sure you want to delete?"
@@ -40,7 +40,7 @@ const expanded = ref(false);
 
         <div v-if="replies.length >= 2 && !expanded" class="contents">
             <div class="col-span-2 col-start-2">
-                <Button size="medium" type="outline" @click="expanded = true">
+                <Button type="outline" @click="expanded = true">
                     Show {{ replies.length - 1 }} more replies
                 </Button>
             </div>
@@ -56,7 +56,7 @@ const expanded = ref(false);
         </template>
 
         <div class="col-span-2 col-start-2">
-            <Button size="medium" type="solid">Reply</Button>
+            <Button type="solid">Reply</Button>
         </div>
     </div>
 </template>
@@ -73,7 +73,7 @@ const expanded = ref(false);
     }
 
     &:hover .controls {
-        display: initial;
+        display: flex;
     }
 }
 </style>

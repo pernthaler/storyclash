@@ -11,9 +11,10 @@ const date = useDateFormat(props.createdAt, "DD.MM.YYYY, HH:mm");
     <img
         class="border-border bg-border col-start-2 m-auto size-8 rounded-full border"
         :src="author.avatar"
+        alt="Avatar"
         loading="lazy" />
 
-    <div class="flex">
+    <div class="flex gap-4">
         <div>
             <p class="text-sm font-medium">{{ author.username }}</p>
             <p class="text-placeholder text-xs">{{ date }}</p>

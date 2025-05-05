@@ -59,6 +59,7 @@ function onSubmit() {
                             Cancel
                         </Button>
                         <Button
+                            class="float-right"
                             size="large"
                             :type="!danger ? 'primary' : 'danger'"
                             submit>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const { size = "small" } = defineProps<{
-    size?: "small" | "medium" | "large";
+    size?: "small" | "large";
     type?: "primary" | "danger" | "solid" | "outline";
     submit?: boolean;
 }>();
@@ -23,16 +23,8 @@ const emit = defineEmits(["click"]);
 button {
     border-radius: 3.125rem;
 
-    &[data-size="small"],
-    &[data-size="medium"] {
-        font-size: 0.75rem;
-    }
-
     &[data-size="small"] {
-        padding: 3px 0.75rem;
-    }
-
-    &[data-size="medium"] {
+        font-size: 0.75rem;
         padding: 3px 1rem;
     }
 
