@@ -11,8 +11,7 @@ const date = useDateFormat(props.createdAt, "DD.MM.YYYY, HH:mm");
     <img
         class="border-border bg-border col-start-2 m-auto size-8 rounded-full border"
         :src="author.avatar"
-        loading="lazy"
-    />
+        loading="lazy" />
 
     <div class="flex">
         <div>

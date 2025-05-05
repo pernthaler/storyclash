@@ -14,8 +14,7 @@ const emit = defineEmits(["click"]);
         :type="submit ? 'submit' : 'button'"
         @click="emit('click')"
         :data-size="size"
-        :data-type="type"
-    >
+        :data-type="type">
         <slot />
     </button>
 </template>

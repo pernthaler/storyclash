@@ -24,8 +24,7 @@ const expanded = ref(false);
                     title="Are you sure you want to delete?"
                     action="Delete Note"
                     @submit="emit('delete')"
-                    danger
-                >
+                    danger>
                     <template #trigger>
                         <Button type="outline">Delete</Button>
                     </template>
@@ -35,7 +34,6 @@ const expanded = ref(false);
                         <br />
                         This cannot be undone!
                     </p>
-                    <p></p>
                 </Modal>
             </div>
         </Comment>
@@ -54,8 +52,7 @@ const expanded = ref(false);
             <Comment
                 v-if="expanded || index === replies.length - 1"
                 :key="reply.id"
-                v-bind="reply"
-            />
+                v-bind="reply" />
         </template>
 
         <div class="col-span-2 col-start-2">

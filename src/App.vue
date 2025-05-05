@@ -50,14 +50,12 @@ async function onDelete(note: ApiNote) {
             <Modal
                 title="Create a new Note"
                 action="Create Note"
-                @submit="onCreate"
-            >
+                @submit="onCreate">
                 <template #trigger>
                     <Button
                         size="large"
                         type="primary"
-                        @click="text = undefined"
-                    >
+                        @click="text = undefined">
                         Create a new Note
                     </Button>
                 </template>
@@ -69,16 +67,14 @@ async function onDelete(note: ApiNote) {
 
     <div
         v-auto-animate
-        class="border-border rounded-lg border bg-white shadow-xs"
-    >
+        class="border-border rounded-lg border bg-white shadow-xs">
         <template v-if="isFinished">
             <Note
                 v-if="notes?.length"
                 v-for="note in sortedNotes"
                 :key="note.id"
                 v-bind="note"
-                @delete="onDelete(note)"
-            />
+                @delete="onDelete(note)" />
             <p v-else class="p-6">No Notes were found</p>
         </template>
         <p v-else class="p-6">Loading...</p>

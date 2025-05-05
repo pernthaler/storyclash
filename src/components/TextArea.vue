@@ -13,6 +13,5 @@ defineProps<{
         class="placeholder:text-placeholder border-border bg-surface-dark rounded-sm border px-4 py-3 text-sm"
         :placeholder
         :maxlength="255"
-        required
-    />
+        required />
 </template>
