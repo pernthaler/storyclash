@@ -26,7 +26,7 @@ body {
 }
 
 #app {
-    margin: 4rem 1rem 1rem 1rem;
+    margin: 4rem 1.5rem 1.5rem 1.5rem;
     max-width: 70rem;
     display: flex;
     flex-direction: column;
