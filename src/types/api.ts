@@ -12,6 +12,7 @@ export type CommentApi = {
 
 export type UserApi = {
     id: number;
-    username: string;
+    firstName: string;
+    lastName: string;
     avatar: string;
 };

@@ -17,7 +17,9 @@ const date = useDateFormat(createdAt, "DD.MM.YYYY, HH:mm");
 
     <div class="flex gap-4">
         <div>
-            <p class="text-sm font-medium">{{ author.username }}</p>
+            <p class="text-sm font-medium">
+                {{ author.firstName }} {{ author.lastName }}
+            </p>
             <p class="text-placeholder text-xs">{{ date }}</p>
         </div>
 
