@@ -12,25 +12,25 @@ class UserFixtures extends Fixture
         $johnDoe = new User();
         $johnDoe->setFirstName('John');
         $johnDoe->setLastName('Doe');
-        $johnDoe->setAvatar('/examples/matthew-hamilton.jpg');
+        $johnDoe->setAvatar('/examples/john-doe.jpeg');
         $manager->persist($johnDoe);
 
         $lisaLink = new User();
         $lisaLink->setFirstName('Lisa');
         $lisaLink->setLastName('Link');
-        $lisaLink->setAvatar('/examples/aiony-haust.jpg');
+        $lisaLink->setAvatar('/examples/lisa-link.jpeg');
         $manager->persist($lisaLink);
 
         $harrySamson = new User();
         $harrySamson->setFirstName('Harry');
         $harrySamson->setLastName('Samson');
-        $harrySamson->setAvatar('/examples/joseph-gonzalez.jpg');
+        $harrySamson->setAvatar('/examples/harry-samson.jpeg');
         $manager->persist($harrySamson);
 
         $peterSmith = new User();
         $peterSmith->setFirstName('Peter');
         $peterSmith->setLastName('Smith');
-        $peterSmith->setAvatar('/examples/petr-sevcovic.jpg');
+        $peterSmith->setAvatar('/examples/peter-smith.jpeg');
         $manager->persist($peterSmith);
 
         $manager->flush();
