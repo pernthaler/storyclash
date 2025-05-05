@@ -27,11 +27,11 @@ class UserFixtures extends Fixture
         $harrySamson->setAvatar('/examples/joseph-gonzalez.jpg');
         $manager->persist($harrySamson);
 
-        $harrySamson = new User();
-        $harrySamson->setFirstName('Peter');
-        $harrySamson->setLastName('Smith');
-        $harrySamson->setAvatar('/examples/petr-sevcovic.jpg');
-        $manager->persist($harrySamson);
+        $peterSmith = new User();
+        $peterSmith->setFirstName('Peter');
+        $peterSmith->setLastName('Smith');
+        $peterSmith->setAvatar('/examples/petr-sevcovic.jpg');
+        $manager->persist($peterSmith);
 
         $manager->flush();
     }

@@ -91,7 +91,7 @@ class NoteController extends AbstractController
         $note->addReply($reply);
         $entityManager->flush();
 
-        return $this->json($note);
+        return $this->json($reply);
     }
 
 }
