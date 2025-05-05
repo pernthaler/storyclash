@@ -1,16 +1,16 @@
-export type ApiNote = ApiComment & {
+export type NoteApi = CommentApi & {
     updatedAt: string;
-    replies: ApiComment[];
+    replies: CommentApi[];
 };
 
-export type ApiComment = {
+export type CommentApi = {
     id: number;
     text: string;
     createdAt: string;
-    author: ApiUser;
+    author: UserApi;
 };
 
-export type ApiUser = {
+export type UserApi = {
     id: number;
     username: string;
     avatar: string;

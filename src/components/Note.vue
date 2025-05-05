@@ -1,25 +1,55 @@
 <script setup lang="ts">
-import type { ApiNote } from "../types/api";
+import noteRepository from "../repositories/noteRepository";
+import type { NoteApi } from "../types/api";
 import Button from "./Button.vue";
 import Comment from "./Comment.vue";
 import Modal from "./Modal.vue";
+import TextArea from "./TextArea.vue";
 import { ref } from "vue";
 import IconComment from "~icons/lets-icons/comment";
 
-defineProps<ApiNote>();
+const props = defineProps<NoteApi>();
+const note = ref({ ...props });
+const text = ref(note.value.text);
+const reply = ref<string>();
 
-const emit = defineEmits(["edit", "delete"]);
+const emit = defineEmits(["delete"]);
 
 const expanded = ref(false);
+
+async function onEdit() {
+    note.value = await noteRepository.patchNote(note.value, text.value);
+}
+
+async function onReply() {
+    if (!reply.value) return;
+
+    note.value.replies.push(
+        await noteRepository.replyNote(note.value, reply.value),
+    );
+}
 </script>
 
 <template>
     <div class="note p-6">
         <IconComment class="text-icon m-auto" />
 
-        <Comment :id :text :created-at="updatedAt" :author>
+        <Comment
+            :id="note.id"
+            :text="note.text"
+            :created-at="note.updatedAt"
+            :author="note.author">
             <div class="controls my-auto hidden gap-1.5">
-                <Button type="outline" @click="emit('edit')">Edit</Button>
+                <Modal title="Edit Note" action="Save Note" @submit="onEdit">
+                    <template #trigger>
+                        <Button type="outline">Edit</Button>
+                    </template>
+
+                    <TextArea
+                        v-model="text"
+                        placeholder="Please enter your Note" />
+                </Modal>
+
                 <Modal
                     title="Are you sure you want to delete?"
                     action="Delete Note"
@@ -38,25 +68,38 @@ const expanded = ref(false);
             </div>
         </Comment>
 
-        <div v-if="replies.length >= 2 && !expanded" class="contents">
+        <div v-if="note.replies.length >= 2 && !expanded" class="contents">
             <div class="col-span-2 col-start-2">
                 <Button type="outline" @click="expanded = true">
-                    Show {{ replies.length - 1 }} more replies
+                    Show {{ note.replies.length - 1 }} more replies
                 </Button>
             </div>
 
             <div class="bg-border col-start-2 mx-auto h-4 w-px" />
         </div>
 
-        <template v-for="(reply, index) in replies">
+        <template v-for="(reply, index) in note.replies">
             <Comment
-                v-if="expanded || index === replies.length - 1"
+                v-if="expanded || index === note.replies.length - 1"
                 :key="reply.id"
                 v-bind="reply" />
         </template>
 
         <div class="col-span-2 col-start-2">
-            <Button type="solid">Reply</Button>
+            <Modal
+                title="Create a new Reply"
+                action="Create Reply"
+                @submit="onReply">
+                <template #trigger>
+                    <Button type="solid" @click="reply = undefined">
+                        Reply
+                    </Button>
+                </template>
+
+                <TextArea
+                    v-model="reply"
+                    placeholder="Please enter your Reply" />
+            </Modal>
         </div>
     </div>
 </template>

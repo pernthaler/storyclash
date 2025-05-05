@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { ApiComment } from "../types/api";
+import type { CommentApi } from "../types/api";
 import { useDateFormat } from "@vueuse/core";
 
-const props = defineProps<ApiComment>();
+const props = defineProps<CommentApi>();
 
 const date = useDateFormat(props.createdAt, "DD.MM.YYYY, HH:mm");
 </script>
@@ -25,5 +25,5 @@ const date = useDateFormat(props.createdAt, "DD.MM.YYYY, HH:mm");
 
     <div class="bg-border col-start-2 mx-auto w-px" />
 
-    <div class="py-2 text-sm break-all">{{ text }}</div>
+    <div class="py-2 text-sm break-all whitespace-pre">{{ text }}</div>
 </template>

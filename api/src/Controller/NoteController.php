@@ -78,8 +78,16 @@ class NoteController extends AbstractController
             throw new NotFoundHttpException();
         }
 
+        $users = $entityManager->getRepository(User::class)->findAll();
+        if (! $users) {
+            throw new ServiceUnavailableHttpException();
+        }
+
+        $user = $users[array_rand($users)];
+
         $reply = new Reply();
         $reply->setText($dto->text);
+        $reply->setAuthor($user);
         $note->addReply($reply);
         $entityManager->flush();
 

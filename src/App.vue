@@ -5,11 +5,11 @@ import Modal from "./components/Modal.vue";
 import Note from "./components/Note.vue";
 import TextArea from "./components/TextArea.vue";
 import noteRepository from "./repositories/noteRepository";
-import type { ApiNote } from "./types/api";
+import type { NoteApi } from "./types/api";
 import { syncRefs, useFetch } from "@vueuse/core";
 import { computed, ref } from "vue";
 
-const { data, isFinished } = useFetch("/api/notes").json<ApiNote[]>();
+const { data, isFinished } = useFetch("/api/notes").json<NoteApi[]>();
 const notes = ref(data.value);
 syncRefs(data, notes);
 
@@ -28,7 +28,7 @@ async function onCreate() {
     notes.value?.push(note);
 }
 
-async function onDelete(note: ApiNote) {
+async function onDelete(note: NoteApi) {
     await noteRepository.deleteNote(note);
     const index = notes.value?.indexOf(note);
     if (index !== undefined) {

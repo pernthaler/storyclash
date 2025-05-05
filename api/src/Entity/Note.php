@@ -25,7 +25,7 @@ class Note
     /**
      * @var Collection<int, Reply>
      */
-    #[ORM\OneToMany(targetEntity: Reply::class, mappedBy: 'note', cascade: ['remove'], orphanRemoval: true)]
+    #[ORM\OneToMany(targetEntity: Reply::class, mappedBy: 'note', cascade: ['persist', 'remove'], orphanRemoval: true)]
     private Collection $replies;
 
     #[ORM\Column]
