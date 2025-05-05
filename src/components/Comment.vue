@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import type { CommentApi } from "../types/api";
 import { useDateFormat } from "@vueuse/core";
+import { computed } from "vue";
 
 const props = defineProps<CommentApi>();
-
-const date = useDateFormat(props.createdAt, "DD.MM.YYYY, HH:mm");
+const createdAt = computed(() => props.createdAt);
+const date = useDateFormat(createdAt, "DD.MM.YYYY, HH:mm");
 </script>
 
 <template>
