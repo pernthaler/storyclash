@@ -36,7 +36,8 @@ function onSubmit() {
         <DialogPortal>
             <DialogOverlay class="fixed inset-0 bg-black/50" />
             <DialogContent
-                class="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-white p-6">
+                class="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-white p-6"
+                :aria-describedby="undefined">
                 <form
                     class="flex w-96 flex-col gap-6"
                     @submit.prevent="onSubmit">

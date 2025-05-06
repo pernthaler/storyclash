@@ -8,7 +8,7 @@ A hosted instance is available under: https://storyclash.pernthaler.dev
 
 ## Local
 
-You can start a production environment locally with a single Docker command:
+You can start a production environment locally with a single [Docker](https://www.docker.com/products/docker-desktop/) command:
 
 ```bash
 $ docker compose up --build

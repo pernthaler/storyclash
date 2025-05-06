@@ -68,7 +68,7 @@ async function onReply() {
             </div>
         </Comment>
 
-        <div v-if="note.replies.length >= 2 && !expanded" class="contents">
+        <div v-if="note.replies.length > 2 && !expanded" class="contents">
             <div class="col-span-2 col-start-2">
                 <Button type="outline" @click="expanded = true">
                     Show {{ note.replies.length - 1 }} more replies
@@ -80,7 +80,12 @@ async function onReply() {
 
         <template v-for="(reply, index) in note.replies">
             <Comment
-                v-if="expanded || index === note.replies.length - 1"
+                v-if="
+                    expanded ||
+                    index === note.replies.length - 1 ||
+                    (note.replies.length <= 2 &&
+                        index === note.replies.length - 2)
+                "
                 :key="reply.id"
                 v-bind="reply" />
         </template>
