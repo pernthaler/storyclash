@@ -9,4 +9,5 @@ services:
         depends_on:
             - database
         environment:
+            APP_DEMO: true
             DATABASE_URL: "postgresql://app:!ChangeMe!@database:5432/app?serverVersion=16&charset=utf8"

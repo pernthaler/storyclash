@@ -24,6 +24,6 @@ Before deploying to a real production system, proper authentication is needed, e
 - Permissions
 - Emoji Reactions (e.g. GitHub / [GitLab](https://docs.gitlab.com/user/emoji_reactions/))
 - Markdown Support
-- Animations for Replies
+- Custom Animations
 - Loading Skeleton
 - Note Pagination

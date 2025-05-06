@@ -1,4 +1,4 @@
-FROM node:slim AS node
+FROM node:latest AS node
 WORKDIR /app
 COPY . .
 RUN npm install
@@ -9,7 +9,7 @@ WORKDIR /app
 COPY api .
 RUN composer install
 
-FROM dunglas/frankenphp:alpine
+FROM dunglas/frankenphp:latest
 ENV APP_ENV=prod
 RUN install-php-extensions pdo_pgsql
 COPY --from=node /app/dist /var/www/html
