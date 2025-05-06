@@ -93,5 +93,4 @@ class NoteController extends AbstractController
 
         return $this->json($reply);
     }
-
 }
