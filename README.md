@@ -22,6 +22,7 @@ Before deploying to a real production system, proper authentication is needed, e
 
 - Authentication (e.g. [GitHub](https://docs.github.com/en/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps))
 - Permissions
+- Mobile Support
 - Emoji Reactions (e.g. GitHub / [GitLab](https://docs.gitlab.com/user/emoji_reactions/))
 - Markdown Support
 - Custom Animations
