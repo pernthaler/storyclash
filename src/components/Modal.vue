@@ -75,11 +75,11 @@ function onSubmit() {
 
 <style scoped lang="scss">
 .overlay {
-    animation: overlayShow var(--default-transition-duration) var(--ease-out);
+    animation: overlayShow 150ms var(--ease-out);
 }
 
 .content {
-    animation: contentShow var(--default-transition-duration) var(--ease-out);
+    animation: contentShow 150ms var(--ease-out);
 }
 
 @keyframes overlayShow {
