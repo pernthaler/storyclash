@@ -34,9 +34,9 @@ function onSubmit() {
             <slot name="trigger" />
         </DialogTrigger>
         <DialogPortal>
-            <DialogOverlay class="fixed inset-0 bg-black/50" />
+            <DialogOverlay class="overlay fixed inset-0 bg-black/50" />
             <DialogContent
-                class="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-white p-6"
+                class="content fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-white p-6 transition-transform"
                 :aria-describedby="undefined">
                 <form
                     class="flex w-96 flex-col gap-6"
@@ -72,3 +72,26 @@ function onSubmit() {
         </DialogPortal>
     </DialogRoot>
 </template>
+
+<style scoped lang="scss">
+.overlay {
+    animation: overlayShow var(--default-transition-duration) ease-out;
+}
+
+.content {
+    animation: contentShow var(--default-transition-duration) ease-out;
+}
+
+@keyframes overlayShow {
+    from {
+        opacity: 0;
+    }
+}
+
+@keyframes contentShow {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+}
+</style>
