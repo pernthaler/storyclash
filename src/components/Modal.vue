@@ -36,7 +36,7 @@ function onSubmit() {
         <DialogPortal>
             <DialogOverlay class="overlay fixed inset-0 bg-black/50" />
             <DialogContent
-                class="content fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-white p-6 transition-transform"
+                class="content fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-lg bg-white p-6"
                 :aria-describedby="undefined">
                 <form
                     class="flex w-96 flex-col gap-6"
@@ -73,7 +73,7 @@ function onSubmit() {
     </DialogRoot>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .overlay {
     animation: overlayShow 150ms var(--ease-out);
 }
